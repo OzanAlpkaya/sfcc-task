@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<form xmlns="http://www.demandware.com/xml/form/2008-04-19">
+    <field formid="name" label="label.input.reminder.name" type="string" mandatory="true" binding="name" max-length="20"
+           missing-error="error.message.required" range-error="error.message.20orless"/>
+
+    <field formid="message" label="label.input.reminder.message" type="string" mandatory="true" binding="message" max-length="50"
+           missing-error="error.message.required" range-error="error.message.50orless"/>
+
+    <field formid="birthday" label="label.input.reminder.birthday" type="string" mandatory="true" binding="birthday"/>
+
+    <field formid="remindBefore" label="label.input.reminder.remindbefore" type="string" mandatory="true" binding="remindBefore"
+           default-value="1:w">
+        <options>
+              <option optionid="1w" label="1 Week" value="1:w"/>
+              <option optionid="2w" label="2 Weeks" value="2:w"/>
+              <option optionid="1m" label="1 Month" value="1:m"/>
+        </options>
+    </field>
+
+    <field formid="remindEveryYear" label="label.input.reminder.remindeveryyear" type="boolean" binding="remindEveryYear" edfault-value="true"/>/>
+
+
+    <action formid="apply" valid-form="true"/>
+    <action formid="remove" valid-form="false"/>
+</form>

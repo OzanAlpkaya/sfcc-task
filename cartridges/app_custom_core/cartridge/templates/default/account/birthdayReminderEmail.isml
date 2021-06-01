@@ -1,0 +1,11 @@
+<body>
+
+    <h1>${Resource.msgf('email.birthdayreminder.greetings', 'account', null, pdict.firstName, pdict.lastName)}</h1>
+
+    <p>${Resource.msgf('email.birthdayreminder.body', 'account', null, pdict.nameOfFriend)} 
+
+    <p>${pdict.message}</p>
+
+    <p>${Resource.msg('email.birthdayreminder.thanks', 'account', null)}</p>
+
+</body>

@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-header clearfix">
+        <h2 class="pull-left">${Resource.msg('label.birthdayreminder', 'account', null)}</h2>
+        <isif condition="${pdict.payment}">
+            <a href="${pdict.viewSavedPaymentsUrl}" class="pull-right"
+                aria-label="${Resource.msg('label.payment.viewsavedpaymentmethods', 'account', null)}">${Resource.msg('link.view', 'account', null)}</a>
+        </isif>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-borderless">
+            <tbody>
+                <isloop items=${pdict.birthdayReminders} var="reminder" status="index">
+                    <tr>
+                        <td>${reminder.name}</td>
+                        <td>${reminder.birthday}</td>
+                        <td style="white-space: no-wrap; width: 1px">
+                            <a class="card-link edit-birthday-reminder" href="${URLUtils.url('Account-EditBirthdayReminder', 'reminderIndex', index.count - 1)}">
+                                Edit
+                            </a>
+                        </td>
+                        <td style="white-space: no-wrap; width: 1px">
+                            <a href="${URLUtils.url('Account-DeleteBirthdayReminder', 'reminderIndex', index.count - 1)}">
+                                Delete
+                            </a>
+                        </td>
+                    </tr>
+                </isloop>
+            </tbody>
+
+
+        </table>
+    </div>
+    <div class="card-footer card-footer-border text-center">
+        <a class="card-link edit-birthday-reminder" href="${URLUtils.url('Account-AddBirthdayReminder')}">
+            ${Resource.msg('label.birthdayreminder.addnewreminder', 'account', null)}
+        </a>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<form action="${URLUtils.url('Account-SaveBirthdayReminder', 'reminderIndex', pdict.reminderIndex)}" class="birthdayReminder-form" method="POST">
+    <div class="form-group
+        ${pdict.birthdayReminderForm.name.mandatory === true ? 'required' : ''}">
+        <label class="form-control-label" for="name">
+            <isprint value="${pdict.birthdayReminderForm.name.label}" encoding="htmlcontent" />
+        </label>
+        <input type="text" class="form-control" id="name"
+            <isprint value="${pdict.birthdayReminderForm.name.attributes}" encoding="off" />>
+        <div class="invalid-feedback"></div>
+    </div>
+
+    <div class="form-group
+        ${pdict.birthdayReminderForm.message.mandatory === true ? 'required' : ''}">
+        <label class="form-control-label" for="message">
+            <isprint value="${pdict.birthdayReminderForm.message.label}" encoding="htmlcontent" />
+        </label>
+        <input type="text" class="form-control" id="message"
+            <isprint value="${pdict.birthdayReminderForm.message.attributes}" encoding="off" />>
+        <div class="invalid-feedback"></div>
+    </div>
+
+    <div class="form-group
+        ${pdict.birthdayReminderForm.birthday.mandatory === true ? 'required' : ''}">
+        <label class="form-control-label" for="birthday">
+            <isprint value="${pdict.birthdayReminderForm.birthday.label}" encoding="htmlcontent" />
+        </label>
+        <input type="date" class="form-control" id="birthday"
+            <isprint value="${pdict.birthdayReminderForm.birthday.attributes}" encoding="off" />>
+        <div class="invalid-feedback"></div>
+    </div>
+
+    <div class="form-group
+        ${pdict.birthdayReminderForm.remindBefore.mandatory === true ? 'required' : ''}">
+        <label class="form-control-label" for="remindBefore">
+            <isprint value="${pdict.birthdayReminderForm.remindBefore.label}" encoding="htmlcontent" />
+        </label>
+        <select class="form-control" id="remindBefore"
+            <isprint value="${pdict.birthdayReminderForm.remindBefore.attributes}" encoding="off" />>
+            <isloop items=${pdict.birthdayReminderForm.remindBefore.options} var="time">
+                <option id="${time.id}" value="${time.htmlValue}" <isif condition="${time.selected}">selected</isif>>${time.label}</option>
+            </isloop>
+        </select>
+        <div class="invalid-feedback"></div>
+    </div>
+
+    <div class="form-group
+        ${pdict.birthdayReminderForm.remindEveryYear.mandatory === true ? 'required' : ''}">
+        <label class="form-control-label" for="remindEveryYear">
+            <isprint value="${pdict.birthdayReminderForm.remindEveryYear.label}" encoding="htmlcontent" />
+        </label>
+        <input type="checkbox" class="form-control" id="remindEveryYear" <isif condition="${pdict.birthdayReminderForm.remindEveryYear.value}">checked</isif>
+            <isprint value="${pdict.birthdayReminderForm.remindEveryYear.attributes}" encoding="off" />>
+        <div class="invalid-feedback"></div>
+    </div>
+
+    <input type="hidden" name="${pdict.csrf.tokenName}" value="${pdict.csrf.token}"/>
+
+    <!-- Cancel and Save Buttons -->
+    <div class="row">
+        <div class="col-6">
+            <a href="${URLUtils.url('Account-Show')}" class="btn btn-block btn-outline-primary">${Resource.msg('button.cancel','account',null)}</a>
+        </div>
+        <div class="col-6">
+            <button type="submit" name="save" class="btn btn-save btn-block btn-primary">${Resource.msg('button.save','account',null)}</button>
+        </div>
+    </div>
+
+</form>
